@@ -1,6 +1,7 @@
 package pt.iscte.pa.lab1
 
 import java.io.File
+import java.nio.file.Path
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
@@ -47,8 +48,8 @@ class Lab1Tests {
 
     @Test
     fun testListFilesRecursively() {
-        // testDir folder in intelliJ project
-        val path = File(File(System.getProperty("user.dir")), "testDir")
+        // /src/test/testDir
+        val path = Path.of(System.getProperty("user.dir"), "src", "test", "testDir").toFile()
         val files = path.listFilesRec { true }
         val expected = listOf(
             File(path,"f0.kt"),
@@ -62,8 +63,8 @@ class Lab1Tests {
 
     @Test
     fun testListFilesRecursivelyAccept() {
-        // testDir in execution directory
-        val path = File(File(System.getProperty("user.dir")), "testDir")
+        // /src/test/testDir
+        val path = Path.of(System.getProperty("user.dir"), "src", "test", "testDir").toFile()
         val files = path.listFilesRec {
             it.extension == "kt"
         }
