@@ -5,7 +5,7 @@ import java.nio.file.Path
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-class Lab1Tests {
+class FileUtilTests {
     @Test
     fun testFileExtension() {
         assertEquals("", File("random").extension)

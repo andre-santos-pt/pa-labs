@@ -4,7 +4,7 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 
 
-class Lab2Tests {
+class FileDirectoryCompositeTests {
 
     val artists = DirectoryElement("artists")
     val beatles = DirectoryElement("beatles", artists)
