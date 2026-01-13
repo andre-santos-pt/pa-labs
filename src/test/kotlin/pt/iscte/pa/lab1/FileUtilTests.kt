@@ -9,7 +9,7 @@ class FileUtilTests {
     @Test
     fun testFileExtension() {
         assertEquals("", File("random").extension)
-        assertEquals("kt", File("Test.kt").extension)
+        assertEquals("kt", File("DynamicClassLoading.kt").extension)
         assertEquals("kts", File("build.gradle.kts").extension)
     }
 
@@ -22,7 +22,7 @@ class FileUtilTests {
 
     val fileList = listOf(
         File("README"),
-        File("Test.kt"),
+        File("DynamicClassLoading.kt"),
         File("Example.kt"),
         File("Script.kts")
     )
@@ -40,7 +40,7 @@ class FileUtilTests {
 
     @Test
     fun testWithExtension() {
-        val expected = listOf(File("Test.kt"), File("Example.kt"))
+        val expected = listOf(File("DynamicClassLoading.kt"), File("Example.kt"))
         assertEquals(expected, fileList.withExtension("kt"))
         assertEquals(expected + File("Script.kts"), fileList.withExtension("kt", "kts"))
         assertEquals(emptyList<File>(), fileList.withExtension("txt"))

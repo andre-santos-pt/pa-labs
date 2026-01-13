@@ -1,5 +1,5 @@
 plugins {
-    kotlin("jvm") version "2.3.0"
+    kotlin("jvm") version "2.2.21"
 }
 
 group = "pt.iscte"
@@ -10,6 +10,7 @@ repositories {
 }
 
 dependencies {
+    implementation(kotlin("reflect"))
     testImplementation(kotlin("test"))
 }
 
