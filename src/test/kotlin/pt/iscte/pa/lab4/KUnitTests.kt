@@ -24,8 +24,6 @@ class KUnitTests {
     }
 }
 
-
-
 // example class with tests
 class MyTests {
     @TestCase
