@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Assertions.assertEquals
 @ExtendWith(TimeWatcher::class)
 class DemoTest {
     @Test
-    fun shortTest() {
+    fun fastTest() {
         assertEquals(2, 1 + 1)
     }
 
