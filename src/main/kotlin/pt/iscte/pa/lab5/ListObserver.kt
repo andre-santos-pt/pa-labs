@@ -24,6 +24,13 @@ class ListObserver<T>(
         return ret
     }
 
+    override fun add(index: Int, element: T): Unit {
+        list.add(index, element)
+        observers.forEach { obs ->
+            obs(ListEvent.ADD, index, element)
+        }
+    }
+
     override fun removeAt(index: Int): T {
         val ret = list.removeAt(index)
         observers.forEach { obs ->
