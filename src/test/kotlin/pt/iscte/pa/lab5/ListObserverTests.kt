@@ -5,6 +5,24 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 
 class ListObserverTests {
+
+    @Test
+    fun testAddObservation() {
+        val listObs = ListObserver(mutableListOf(1,2,3))
+        val modifiedIndexes = mutableListOf<Int>()
+        val addedElements = mutableListOf<Int>()
+        listObs.addObserver { event, index, element ->
+            assertEquals(ListEvent.ADD, event)
+            addedElements.add(element)
+            modifiedIndexes.add(index)
+        }
+        repeat(3) {
+            listObs.add(1, it)
+        }
+        assertEquals(listOf(1, 2, 1, 0, 2, 3), listObs)
+        assertEquals(listOf(1, 1, 1), modifiedIndexes)
+    }
+
     @Test
     fun testRemoveAtObservation() {
         val listObs = ListObserver(mutableListOf(1,2,3))
