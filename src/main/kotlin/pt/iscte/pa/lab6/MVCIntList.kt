@@ -140,7 +140,6 @@ class SetCommand(val index: Int, val value: Int) : Command {
     override fun undo(model: ListObserver<Int>) {
         model.set(index, previous ?: throw RuntimeException("undo called before run()"))
     }
-
 }
 
 
