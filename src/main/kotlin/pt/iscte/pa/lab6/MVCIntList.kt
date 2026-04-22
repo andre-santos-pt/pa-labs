@@ -77,7 +77,8 @@ class ListPanel(
                 val text = (components[index] as JTextField).text
                 // TODO c) notify observers
                 observers.forEach {
-                    it(index, text)
+                    if(text.trim() != model[index].toString())
+                        it(index, text)
                 }
             }
         })
@@ -140,7 +141,6 @@ class SetCommand(val index: Int, val value: Int) : Command {
     override fun undo(model: ListObserver<Int>) {
         model.set(index, previous ?: throw RuntimeException("undo called before run()"))
     }
-
 }
 
 
